@@ -1,0 +1,16 @@
+{
+  "name": "angular-movie-app",
+  "version": "1.0.0",
+  "description": "informational movie app using the movie DB API",
+  "main": "app.js",
+  "author": "Andrew Carroll",
+  "repository": "https://github.com/walkingonwires/angular-movie-app.git",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.9",
+    "ui-router": "^1.0.0-alpha.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
