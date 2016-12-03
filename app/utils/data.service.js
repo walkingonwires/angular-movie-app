@@ -6,6 +6,6 @@
     dataFactory.$inject = ['$http', '$q'];
 
     function dataFactory () {
-        
+
     }
 })();
