@@ -1,1 +1,10 @@
-<
+<div class="home">
+	<div class="sort-container"></div>
+	<div class="container">
+		<div class="row no-gutters">
+			<div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="movie in movies">
+				<a ng-href="#/details/{{movie.id}}"><img class="poster" ng-src="{{buildImageSrc(movie.poster_path)}}"></a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -7,10 +7,17 @@
   "repository": "https://github.com/walkingonwires/angular-movie-app.git",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.5.9",
-    "ui-router": "^1.0.0-alpha.3"
+    "express": "^4.14.0",
+    "path": "^0.12.7",
+    "request": "^2.79.0",
+    "request-debug": "^0.2.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.11"
   }
 }
