@@ -1,9 +1,20 @@
 <div class="home">
-	<div class="sort-container"></div>
 	<div class="container">
-		<div class="row no-gutters">
-			<div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="movie in movies">
-				<a ng-href="#/details/{{movie.id}}"><img class="poster" ng-src="{{buildImageSrc(movie.poster_path)}}"></a>
+		<div class="jumbotron">
+			<h1>Movie Browsing App!</h1>
+			<p>I quickly threw this app together using angular, bootstrap, and The Movie Database.</p>
+			<p>This was a first pass so things are still rough, but I have plans to refine the design and flesh out the features (sort, filtering, comments, etc).</p>
+		</div>
+		<div class="loader" ng-if="loading"><i class="fa-5x fa fa-spinner"></i></div>
+		<div class="row no-gutters" ng-if="!loading">
+			<div class="col-md-2 col-sm-4 col-xs-6 poster-container" ng-repeat="movie in movies">
+				<a ng-href="#/details/{{movie.id}}"><div class="poster" back-img="{{buildImageSrc(movie.backdrop_path)}}"></div></a>
+			</div>
+			<div class="col-md-2 col-sm-4 col-xs-6" ng-if="!loadingMore">
+				<div class="load-more" ng-click="loadMore()">
+					<h3>Load More</h3>
+					<i class="fa-3x fa fa-plus-circle"></i>
+				</div>
 			</div>
 		</div>
 	</div>

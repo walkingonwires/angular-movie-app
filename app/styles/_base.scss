@@ -1,20 +1,30 @@
 html, body  {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
+  background-color: $medium-gray !important;
 
-  header {
+  nav {
     width: 100vw;
+    background-color: $blue-black;
+    border-radius: 0 !important;
+    padding: 4px 0 !important;
 
-    .nav {
-      background-color: $blue-black;
-      padding: 12px 16px !important;
+    .container {
+      width: 100vw !important;
+    }
 
-      .logo {
-        margin-top:12px;
+    .navbar-right {
+      margin-right: 28px !important;
+    }
 
-        &:hover {
-          background-color: transparent;
-        }
+
+    .attribution, .home-icon {
+
+      i, img {
+        top: 50%;
+        position: relative;
+        transform: translateY(-50%);
       }
     }
 

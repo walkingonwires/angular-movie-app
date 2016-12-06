@@ -6,27 +6,45 @@
 
 	<link rel="stylesheet" href="main.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
 	<script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
 	<script src="app.js"></script>
-	<!--Components-->
+
 	<script src="home/home.controller.js"></script>
+	<script src="details/details.controller.js"></script>
+
+	<!--Components-->
+	<script src="components/comments/comments.directive.js"></script>
+	<script src="components/movie-sort/movie-sort.directive.js"></script>
 
 	<!--Utils-->
 	<script src="utils/data.service.js"></script>
+	<script src="utils/bgImage.directive.js"></script>
 	<script src="app.init.js"></script>
 
 </head>
 <body>
-	<header>
-		<ul class="nav nav-pills">
-			<li class="pull-left"><a ui-sref="home"><h2>Movie Browser!</h2></a></li>
-			<li class="pull-right logo"><a><img class="attribution" src="images/tmdb-rectangle-green.png"></a></li>
-		</ul>
-	</header>
+	<nav class="navbar dark-nav">
+		<div class="container">
+			<span class="navbar-left">
+				<a class="navbar-brand home-icon" href="#">
+					<i class="fa fa-2x fa-home"></i>
+				</a>
+			</span>
+			<span class="navbar-right">
+				<a class="navbar-brand attribution" href="#">
+					<img class="attribution" src="images/tmdb-rectangle-green.png">
+				</a>
+			</span>
+		</div>
+	</nav>
+
 
 	<div class="content">
 		<div ui-view></div>

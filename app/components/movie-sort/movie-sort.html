@@ -1,0 +1,13 @@
+<div class="sort-container">
+	<div class="dropdown">
+		<button class="btn btn-default dropdown-toggle" type="button" id="sortDropdown" data-toggle="dropdown">
+			Sort Movies By: {{sortString}}
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="sortDropdown">
+			<li ng-click="updateSort(sortValues.POPULARITY, 'Popularity')" ng-class="{ 'active' : activeSort === sortValues.POPULARITY}">Popularity</li>
+			<li ng-click="updateSort(sortValues.RELEASE, 'Release Date')" ng-class="{ 'active' : activeSort === sortValues.RELEASE}">Release Date</li>
+			<li ng-click="updateSort(sortValues.REVIEWS, 'Review Average')" ng-class="{ 'active' : activeSort === sortValues.REVIEWS}">Review Average</li>
+		</ul>
+	</div>
+</div>
