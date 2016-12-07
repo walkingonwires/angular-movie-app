@@ -9,6 +9,7 @@ html, body  {
     background-color: $blue-black;
     border-radius: 0 !important;
     padding: 4px 0 !important;
+    margin-bottom: 0 !important;
 
     .container {
       width: 100vw !important;
@@ -16,8 +17,8 @@ html, body  {
 
     .navbar-right {
       margin-right: 28px !important;
+      float: right !important;
     }
-
 
     .attribution, .home-icon {
 

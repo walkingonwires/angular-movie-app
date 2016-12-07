@@ -18,16 +18,21 @@
       padding-left: 0;
     }
 
+    .sub-nav {
+      background-color: $warm-orange;
+      padding: 8px 24px;
 
-    
-    .jumbotron {
-      width: 75%;
-      margin: 0 auto 24px;
-      border: 2px solid $blue-black;
-      background-color: rgba(255,255,255,0.8);
+      .sub-header {
+        font-size: 24px;
+        font-weight: bold;
+      }
     }
 
     .loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
       margin: 0 auto;
 
@@ -46,16 +51,25 @@
     }
 
     .poster {
-      min-width: 300px;
+      background-size: cover;
+
+      &.loaded {
+        animation-duration: 1s;
+        animation-name: fadeIn;
+      }
+
+      .expander {
+        padding-bottom: 150%;
+      }
     }
 
-    @media (max-width: 600px) {
-      .jumbotron {
-        width: 90%;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
       }
     }
   }
-
-
-
 }

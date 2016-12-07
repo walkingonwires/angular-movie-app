@@ -10,10 +10,6 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
-	<script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
 	<script src="app.js"></script>
 
 	<script src="home/home.controller.js"></script>
@@ -26,19 +22,19 @@
 	<!--Utils-->
 	<script src="utils/data.service.js"></script>
 	<script src="utils/bgImage.directive.js"></script>
-	<script src="app.init.js"></script>
+	<script src="utils/loadOnScroll.directive.js"></script>
 
 </head>
-<body>
+<body ng-app="movieApp" load-on-scroll>
 	<nav class="navbar dark-nav">
 		<div class="container">
 			<span class="navbar-left">
-				<a class="navbar-brand home-icon" href="#">
+				<a class="navbar-brand home-icon" ui-sref="home">
 					<i class="fa fa-2x fa-home"></i>
 				</a>
 			</span>
 			<span class="navbar-right">
-				<a class="navbar-brand attribution" href="#">
+				<a class="navbar-brand attribution" href="https://www.themoviedb.org/" target="_blank">
 					<img class="attribution" src="images/tmdb-rectangle-green.png">
 				</a>
 			</span>

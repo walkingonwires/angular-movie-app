@@ -19,7 +19,7 @@
 
         $scope.loadMovies = function () {
             $scope.loading = true;
-            dataService.getMovies().then(function (data) {
+            dataService.getMovies($scope.selectedSort.val).then(function (data) {
                 $scope.movies = data.results;
                 $scope.loading = false;
                 displayedPages = 1;
@@ -44,12 +44,10 @@
 
         function _loadMore (additionalPages) {
             $scope.loadingMore = true;
-            var count = 0;
             dataService.getMovies(null, (displayedPages+1)).then(function (data) {
                 $scope.movies.push.apply($scope.movies, data.results);
                 displayedPages++;
-                count++;
-                if (count > additionalPages) {
+                if (additionalPages > 0) {
                     _loadMore(additionalPages-1);
                 } else { $scope.loadingMore = false; }
             }).catch(function (err) {
