@@ -5,11 +5,14 @@
 				<li class="pull-left">
 					<div class="sub-header">Movie Browser</div>
 				</li>
+				<li class="pull-right">
+					<movie-sort active-sort="selectedSort" reload="loadMovies()"></movie-sort>
+				</li>
 			</ul>
 		</div>
 		<div class="loader" ng-if="loading"><i class="fa-5x fa fa-spinner"></i></div>
 		<div class="row no-gutters" id="content-row" ng-if="!loading">
-			<div class="col-md-3 col-sm-4 col-xs-6 poster-container" ng-repeat="movie in movies">
+			<div class="col-md-3 col-sm-4 col-xs-6 poster-container" ng-repeat="movie in movies" ng-if="movie.poster_path" ng-class="{ 'last-movie': $last}">
 				<a ng-href="#/details/{{movie.id}}">
 					<div ng-if="movie.poster_path" class="poster" back-img="{{buildImageSrc(movie.poster_path)}}">
 						<div class="expander"></div>

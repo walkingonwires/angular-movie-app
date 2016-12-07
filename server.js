@@ -5,16 +5,16 @@
         request = require('request'),
         path = require('path');
 
-    require('request-debug')(request);
+    // toggle for basic request console output
+    // require('request-debug')(request);
+
     var app = express();
 
     app.use(express.static(path.join(__dirname, 'app')));
 
     app.use('/proxy', function(req, res) {
         var url = req.url.replace('/?url=','');
-        req.pipe(request(url, function (err, res, body) {
-
-        })).pipe(res);
+        req.pipe(request(url)).pipe(res);
     });
 
     app.listen(3000, function () {

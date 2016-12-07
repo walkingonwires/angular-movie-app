@@ -2,14 +2,27 @@
 
   .dropdown {
     margin: 0 auto;
-    width: 100px;
+    min-width: 250px;
+
+    button {
+      width: 100%;
+    }
   }
 
   .dropdown-menu {
+    min-width: 250px;
 
-    li.active {
-      font-weight: bold;
-      background-color: $dark-tan;
+    li {
+
+      padding: 4px 8px;
+
+      &:hover {
+        background-color: $dark-tan;
+      }
+
+      &.active {
+        font-weight: bold;
+      }
     }
   }
 }

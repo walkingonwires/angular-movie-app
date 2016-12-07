@@ -14,7 +14,8 @@
     ) {
         $scope.selectedSort = {val: MOVIE_SORT.POPULARITY};
         $scope.loading = true;
-        var displayedPages = 0;
+        var displayedPages = 0,
+            autoLoad = true;
 
 
         $scope.loadMovies = function () {
@@ -32,24 +33,29 @@
 
         $scope.loadMore = function () {
             _loadMore(1);
-            $scope.loadingMore = false;
+
         };
 
         $scope.buildImageSrc = function (posterPath) {
             return TMDB_IMG_URL + TMDB_POSTER_SIZES.MEDIUM + posterPath;
         };
 
+        $scope.$on('loadMore', function () {
+            if (autoLoad) {
+                _loadMore(1);
+            }
+        });
+
         $scope.loadMovies();
 
-
         function _loadMore (additionalPages) {
-            $scope.loadingMore = true;
+            autoLoad = false;
             dataService.getMovies(null, (displayedPages+1)).then(function (data) {
                 $scope.movies.push.apply($scope.movies, data.results);
                 displayedPages++;
                 if (additionalPages > 0) {
                     _loadMore(additionalPages-1);
-                } else { $scope.loadingMore = false; }
+                } else {autoLoad = true;}
             }).catch(function (err) {
                 console.error(err);
             });

@@ -3,11 +3,11 @@
 
     angular.module('movieApp').directive('loadOnScroll', loadOnScroll);
 
-    loadOnScroll.$inject = ['$window', '$document'];
+    loadOnScroll.$inject = [ '$document', '$state'];
 
     function loadOnScroll (
-        $window,
-        $document
+        $document,
+        $state
     ) {
         return {
             restrict: 'A',
@@ -17,9 +17,16 @@
 
         function _linkFunc (scope, elem, attr) {
             elem.on('scroll', function () {
-                var content = $document[0].getElementById('content-row');
-                console.log($window[0].pageY);
-                scope.$apply();
+                if ($state = 'home') {
+                    var windowHeight = elem[0].clientHeight;
+                    var last = $document[0].getElementsByClassName('last-movie');
+                    var viewportOffset = last[0].getBoundingClientRect();
+                    var top = viewportOffset.top;
+                    if (top - (viewportOffset.height * 3) < windowHeight ) {
+                        scope.$broadcast('loadMore');
+                        scope.$apply();
+                    }
+                }
             });
         }
     }
