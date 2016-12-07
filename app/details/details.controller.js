@@ -31,11 +31,9 @@
             var videoPopulated = false;
             if (videos && videos.length > 0) {
                 angular.forEach(videos, function (video) {
-                    console.log(video);
                     if (video.site === "YouTube" && !videoPopulated) {
                         var baseUrl = 'http://www.youtube.com/embed/';
                         videoPopulated = true;
-                        console.log(baseUrl + video.key);
                         $scope.details.videoUrl = $sce.trustAsResourceUrl(baseUrl + video.key);
                     }
                 });
@@ -47,7 +45,6 @@
         function _getVideo () {
             dataService.getVideos($scope.details.id).then(function (data) {
                 _getVideoUrl(data.results);
-                console.log($scope.details);
             }).catch(function (err) {
                 console.error(err);
             });
