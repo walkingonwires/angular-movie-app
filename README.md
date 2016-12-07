@@ -2,8 +2,8 @@
 
 ### To Run
 
-no need for npm install. call
 
 ```
+npm install
 node server.js
 ```
