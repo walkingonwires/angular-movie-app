@@ -17,7 +17,7 @@
 
         function _linkFunc (scope, elem, attr) {
             elem.on('scroll', function () {
-                if ($state = 'home') {
+                if ($state.current.name === 'home') {
                     var windowHeight = elem[0].clientHeight;
                     var last = $document[0].getElementsByClassName('last-movie');
                     var viewportOffset = last[0].getBoundingClientRect();

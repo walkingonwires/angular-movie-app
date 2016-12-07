@@ -28,7 +28,16 @@
             },
             getDetails: function (id) {
                 var deferred = $q.defer();
-                $http.get('/movies/'+ id + '?' + keyParam).then(function (res) {
+                $http.get(_prepDetailsUrl(id)).then(function (res) {
+                    deferred.resolve(res.data);
+                }).catch(function (err) {
+                    deferred.reject(err);
+                });
+                return deferred.promise;
+            },
+            getVideos: function (id) {
+                var deferred = $q.defer();
+                $http.get(_prepVideoUrl(id)).then(function (res) {
                     deferred.resolve(res.data);
                 }).catch(function (err) {
                     deferred.reject(err);
@@ -36,6 +45,16 @@
                 return deferred.promise;
             }
         };
+
+        function _prepVideoUrl (id) {
+            var videoPath = '/movie/' + id + '/videos';
+            return proxyPrefix + mdbRoot + videoPath + '?' + keyParam;
+        }
+
+        function _prepDetailsUrl (id) {
+            var detailsPath = '/movie/' + id;
+            return proxyPrefix + mdbRoot + detailsPath + '?' + keyParam;
+        }
 
         function _prepDiscoverUrl (path, order, pageNum) {
             var sort = '&sort_by=' + (order || MOVIE_SORT.POPULARITY),

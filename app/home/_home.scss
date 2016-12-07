@@ -51,15 +51,9 @@
     }
 
     .poster {
-      background-size: cover;
-
       &.loaded {
         animation-duration: 1s;
         animation-name: fadeIn;
-      }
-
-      .expander {
-        padding-bottom: 150%;
       }
     }
 
