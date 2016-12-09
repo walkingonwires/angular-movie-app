@@ -24,8 +24,8 @@
                     var top = viewportOffset.top;
                     if (top - (viewportOffset.height * 3) < windowHeight ) {
                         scope.$broadcast('loadMore');
-                        scope.$apply();
                     }
+                    scope.$broadcast('scrolling');
                 }
             });
         }

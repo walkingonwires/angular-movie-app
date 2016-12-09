@@ -36,5 +36,10 @@
                 controller: 'DetailsController as details'
             });
     });
+})()
 
-})();
+
+
+
+
+
